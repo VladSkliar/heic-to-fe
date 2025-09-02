@@ -3,12 +3,16 @@ import App from './App.vue'
 
 Vue.config.productionTip = false
 
-Vue.prototype.$apiConfig = {
-    convertEndpoint: 'https://heicto.onrender.com/convert-heic-',
-    acceptedTypes: ['.heic']
+// Configure conversion settings
+Vue.prototype.$converter = {
+    api: 'https://heicto.onrender.com/convert/heic-to-jpeg/',
+    settings: {
+        acceptedTypes: ['.heic'],
+        maxSize: 10 * 1024 * 1024
+    }
 }
 
 new Vue({
-  render: h => h(App),
+    render: h => h(App),
 }).$mount('#app')
 
