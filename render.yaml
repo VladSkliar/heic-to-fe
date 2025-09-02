@@ -1,9 +1,14 @@
-
 services:
   - type: web
     name: heic-to-fe
-    buildCommand: NODE_OPTIONS=--openssl-legacy-provider yarn install && yarn build
+    env: static
+    buildCommand: >
+      export NODE_OPTIONS="--openssl-legacy-provider" &&
+      yarn install &&
+      yarn build
     staticPublishPath: ./dist
     envVars:
       - key: NODE_VERSION
         value: 18.19.1
+      - key: NODE_OPTIONS
+        value: --openssl-legacy-provider
