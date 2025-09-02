@@ -1,9 +1,9 @@
+
 services:
   - type: web
     name: heic-to-fe
     env: static
-    buildCommand: yarn install && yarn build
+    runtime: node
+    buildCommand: fnm use 16.20.2 && yarn install && yarn build
     staticPublishPath: ./dist
-    envVars:
-      - key: NODE_VERSION
-        value: 16.20.2
+    nodeVersion: 16.20.2
